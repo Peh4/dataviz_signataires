@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+		<script type="text/javascript" src="d3.min.js"></script>
+		<script type="text/javascript">
+
+	 	
+		var color = d3.scale.category20();
+		var theData = [50,25,10,5,2];
+		
+		var svg = d3.select("body").append("svg")
+			.attr("width", 500)
+			.attr("height", 500);
+
+		var circle = svg.selectAll("circle")
+			.data(theData)
+			.enter()
+			.append("circle")
+			.attr("cx", 100)
+			.attr("cy", 100)
+			.attr("r", function(d){return d;})
+			.attr("fill",function(d,i){ return color(i); });
+
+		</script>  </body>
+</html>
